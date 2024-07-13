@@ -1,0 +1,73 @@
+/* Genel stil ayarları */
+body {
+  background-color: #1a1a1a; /* Karanlık arka plan */
+  font-family: Arial, sans-serif;
+  color: #fff; /* Beyaz metin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.button-container {
+  display: flex;
+}
+
+.toggle-button {
+  position: relative;
+  background-color: #333; /* Karanlık arka plan */
+  color: #fff; /* Beyaz metin */
+  padding: 20px 40px; /* Genişlik ve yükseklik arttırıldı */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.5s;
+  text-align: center;
+  margin-right: 20px;
+  border-radius: 6px;
+  background-image: linear-gradient(to bottom, #333, #222); /* Gradient arka plan */
+}
+
+.toggle-button:hover {
+  background-image: linear-gradient(to bottom, #222, #333); /* Gradient arka plan hover durumunda */
+}
+
+.button-text {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #444; /* Biraz daha koyu arka plan */
+  border-radius: 6px;
+  color: #fff; /* Beyaz metin */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: -1; /* İçeriğin butonun altında kalmasını sağlar */
+  opacity: 0;
+  transition: opacity 0.3s, top 0.5s;
+}
+
+/* Açık durum için simge dönüşümü ve içeriğin gösterilmesi */
+.toggle-button.opened .toggle-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.toggle-button.opened .content {
+  top: calc(100% + 10px);
+  opacity: 1;
+}
